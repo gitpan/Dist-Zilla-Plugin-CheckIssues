@@ -54,8 +54,9 @@ my $static_prereqs = do { my $x = {
                                         'Dist::Zilla::PluginBundle::Author::ETHER' => '0.063'
                                       },
                       'requires' => {
-                                      'Dist::Zilla' => '5.016',
+                                      'Dist::Zilla' => '5.017',
                                       'Dist::Zilla::Plugin::Bootstrap::lib' => '0',
+                                      'Dist::Zilla::Plugin::CheckIssues' => '0',
                                       'Dist::Zilla::Plugin::GitHub::Update' => '0',
                                       'Dist::Zilla::Plugin::GithubMeta' => '0',
                                       'Dist::Zilla::Plugin::MakeMaker::Fallback' => '0.008',

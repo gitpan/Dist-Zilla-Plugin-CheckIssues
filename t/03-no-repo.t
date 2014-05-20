@@ -12,13 +12,11 @@ use Moose::Util 'find_meta';
 use lib 't/lib';
 use NoNetworkHits;
 
-my $rt_text = '{"Foo-Bar":{"dist":"Foo-Bar","counts":{"rejected":0,"inactive":1,"active":0,"resolved":1,"patched":0,"open":0,"stalled":0,"new":0}}}';
-
 {
     use Dist::Zilla::Plugin::CheckIssues;
     my $meta = find_meta('Dist::Zilla::Plugin::CheckIssues');
     $meta->make_mutable;
-    $meta->add_around_method_modifier(_rt_data_raw => sub { $rt_text });
+    $meta->add_around_method_modifier(_github_issue_count => sub { } );
 }
 
 my $tzil = Builder->from_config(
@@ -27,7 +25,7 @@ my $tzil = Builder->from_config(
         add_files => {
             path(qw(source dist.ini)) => simple_ini(
                 [ GatherDir => ],
-                [ CheckIssues => { colour => 0, rt => 1, github => 0 } ],
+                [ CheckIssues => { colour => 0, rt => 0, github => 1 } ],
                 [ FakeRelease => ],
             ),
             path(qw(source lib Foo.pm)) => "package Foo;\n1;\n",
@@ -45,8 +43,7 @@ is(
 cmp_deeply(
     [ map { split "\n" } @{ $tzil->log_messages } ],
     superbagof(
-        '[CheckIssues] Issues on RT (https://rt.cpan.org/Public/Dist/Display.html?Name=DZT-Sample):',
-        '[CheckIssues]   open: 0   stalled: 0',
+        '[CheckIssues] failed to find a github repo in metadata',
     ),
     'no RT information found - reported as 0 issues',
 ) or diag 'saw log messages: ', explain $tzil->log_messages;

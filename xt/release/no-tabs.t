@@ -11,6 +11,7 @@ my @files = (
     't/00-report-prereqs.t',
     't/01-basic.t',
     't/02-no-rt.t',
+    't/03-no-repo.t',
     't/lib/NoNetworkHits.pm',
     'xt/author/00-compile.t',
     'xt/author/pod-spell.t',
