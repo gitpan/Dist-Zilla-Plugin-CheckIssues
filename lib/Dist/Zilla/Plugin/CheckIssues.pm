@@ -1,8 +1,8 @@
 use strict;
 use warnings;
 package Dist::Zilla::Plugin::CheckIssues;
-# git description: v0.002-17-g6a9cdf8
-$Dist::Zilla::Plugin::CheckIssues::VERSION = '0.003';
+# git description: v0.003-1-g46a85fe
+$Dist::Zilla::Plugin::CheckIssues::VERSION = '0.004';
 # ABSTRACT: Retrieve count of outstanding RT and github issues for your distribution
 # KEYWORDS: plugin bugs issues rt github
 # vim: set ts=8 sw=4 tw=78 et :
@@ -93,7 +93,7 @@ sub get_issues
     {
         my %rt_data = $self->_rt_data_for_dist($dist_name);
 
-        my $colour = $rt_data{open} ? 'orange'
+        my $colour = $rt_data{open} ? 'bright_red'
             : $rt_data{stalled} ? 'yellow'
             : 'green';
 
@@ -112,7 +112,7 @@ sub get_issues
         my $issue_count = $self->_github_issue_count($owner_name, $repo_name);
         if (defined $issue_count)
         {
-            my $colour = $issue_count ? 'orange' : 'green';
+            my $colour = $issue_count ? 'bright_red' : 'green';
 
             my @text = (
                 'Issues on github (https://github.com/' . $owner_name . '/' . $repo_name . '):',
@@ -209,7 +209,7 @@ Dist::Zilla::Plugin::CheckIssues - Retrieve count of outstanding RT and github i
 
 =head1 VERSION
 
-version 0.003
+version 0.004
 
 =head1 SYNOPSIS
 

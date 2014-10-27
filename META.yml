@@ -39,10 +39,10 @@ no_index:
 provides:
   Dist::Zilla::App::Command::issues:
     file: lib/Dist/Zilla/App/Command/issues.pm
-    version: '0.003'
+    version: '0.004'
   Dist::Zilla::Plugin::CheckIssues:
     file: lib/Dist/Zilla/Plugin/CheckIssues.pm
-    version: '0.003'
+    version: '0.004'
 requires:
   Dist::Zilla::App: '0'
   Dist::Zilla::Role::BeforeRelease: '0'
@@ -63,7 +63,7 @@ resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-Plugin-CheckIssues
   homepage: https://github.com/karenetheridge/Dist-Zilla-Plugin-CheckIssues
   repository: https://github.com/karenetheridge/Dist-Zilla-Plugin-CheckIssues.git
-version: '0.003'
+version: '0.004'
 x_Dist_Zilla:
   perl:
     version: '5.021005'
@@ -495,7 +495,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::InstallGuide
       name: '@Author::ETHER/InstallGuide'
-      version: '1.200003'
+      version: '1.200005'
     -
       class: Dist::Zilla::Plugin::RunExtraTests
       config:
@@ -632,7 +632,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
           signed: 0
-          tag: v0.003
+          tag: v0.004
           tag_format: v%v%t
           tag_message: v%v%t
           time_zone: local

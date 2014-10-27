@@ -168,11 +168,11 @@
    "provides" : {
       "Dist::Zilla::App::Command::issues" : {
          "file" : "lib/Dist/Zilla/App/Command/issues.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       },
       "Dist::Zilla::Plugin::CheckIssues" : {
          "file" : "lib/Dist/Zilla/Plugin/CheckIssues.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       }
    },
    "release_status" : "stable",
@@ -190,7 +190,7 @@
       "x_IRC" : "irc://irc.perl.org/#distzilla",
       "x_MailingList" : "http://dzil.org/#mailing-list"
    },
-   "version" : "0.003",
+   "version" : "0.004",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.021005"
@@ -753,7 +753,7 @@
          {
             "class" : "Dist::Zilla::Plugin::InstallGuide",
             "name" : "@Author::ETHER/InstallGuide",
-            "version" : "1.200003"
+            "version" : "1.200005"
          },
          {
             "class" : "Dist::Zilla::Plugin::RunExtraTests",
@@ -942,7 +942,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : null,
                   "signed" : 0,
-                  "tag" : "v0.003",
+                  "tag" : "v0.004",
                   "tag_format" : "v%v%t",
                   "tag_message" : "v%v%t",
                   "time_zone" : "local"
