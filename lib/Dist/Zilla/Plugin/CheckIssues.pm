@@ -1,8 +1,8 @@
 use strict;
 use warnings;
 package Dist::Zilla::Plugin::CheckIssues;
-# git description: v0.004-1-gb482019
-$Dist::Zilla::Plugin::CheckIssues::VERSION = '0.005';
+# git description: v0.005-1-gf515c93
+$Dist::Zilla::Plugin::CheckIssues::VERSION = '0.006';
 # ABSTRACT: Retrieve count of outstanding RT and github issues for your distribution
 # KEYWORDS: plugin bugs issues rt github
 # vim: set ts=8 sw=4 tw=78 et :
@@ -209,7 +209,7 @@ Dist::Zilla::Plugin::CheckIssues - Retrieve count of outstanding RT and github i
 
 =head1 VERSION
 
-version 0.005
+version 0.006
 
 =head1 SYNOPSIS
 

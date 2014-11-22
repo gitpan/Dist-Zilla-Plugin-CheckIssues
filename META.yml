@@ -18,9 +18,9 @@ build_requires:
   lib: '0'
   perl: '5.006'
 configure_requires:
-  ExtUtils::MakeMaker: '0'
+  Module::Build::Tiny: '0.039'
   perl: '5.006'
-dynamic_config: 1
+dynamic_config: 0
 generated_by: 'Dist::Zilla version 5.025, CPAN::Meta::Converter version 2.143240'
 keywords:
   - plugin
@@ -40,10 +40,10 @@ no_index:
 provides:
   Dist::Zilla::App::Command::issues:
     file: lib/Dist/Zilla/App/Command/issues.pm
-    version: '0.005'
+    version: '0.006'
   Dist::Zilla::Plugin::CheckIssues:
     file: lib/Dist/Zilla/Plugin/CheckIssues.pm
-    version: '0.005'
+    version: '0.006'
 requires:
   Dist::Zilla::App: '0'
   Dist::Zilla::Role::BeforeRelease: '0'
@@ -64,7 +64,7 @@ resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-Plugin-CheckIssues
   homepage: https://github.com/karenetheridge/Dist-Zilla-Plugin-CheckIssues
   repository: https://github.com/karenetheridge/Dist-Zilla-Plugin-CheckIssues.git
-version: '0.005'
+version: '0.006'
 x_Dist_Zilla:
   perl:
     version: '5.021005'
@@ -113,7 +113,7 @@ x_Dist_Zilla:
           phase: build
           skip: []
       name: '@Author::ETHER/stale modules, build'
-      version: '0.031'
+      version: '0.032'
     -
       class: Dist::Zilla::Plugin::PromptIfStale
       config:
@@ -124,7 +124,7 @@ x_Dist_Zilla:
           phase: release
           skip: []
       name: '@Author::ETHER/stale modules, release'
-      version: '0.031'
+      version: '0.032'
     -
       class: Dist::Zilla::Plugin::ExecDir
       name: '@Author::ETHER/ExecDir'
@@ -468,19 +468,42 @@ x_Dist_Zilla:
       name: '@Author::ETHER/pluginbundle_version'
       version: '5.025'
     -
-      class: Dist::Zilla::Plugin::MakeMaker
+      class: Dist::Zilla::Plugin::MakeMaker::Fallback
       config:
         Dist::Zilla::Role::TestRunner:
           default_jobs: 9
-      name: '@Author::ETHER/MakeMaker'
-      version: '5.025'
+      name: '@Author::ETHER/MakeMaker::Fallback'
+      version: '0.016'
+    -
+      class: Dist::Zilla::Plugin::ModuleBuildTiny::Fallback
+      config:
+        Dist::Zilla::Plugin::ModuleBuildTiny::Fallback:
+          plugins:
+            -
+              class: Dist::Zilla::Plugin::ModuleBuild
+              config:
+                Dist::Zilla::Role::TestRunner:
+                  default_jobs: 9
+              name: ModuleBuildTiny::Fallback
+              version: '5.025'
+            -
+              class: Dist::Zilla::Plugin::ModuleBuildTiny
+              config:
+                Dist::Zilla::Role::TestRunner:
+                  default_jobs: 9
+              name: ModuleBuildTiny::Fallback
+              version: '0.008'
+        Dist::Zilla::Role::TestRunner:
+          default_jobs: 9
+      name: '@Author::ETHER/ModuleBuildTiny::Fallback'
+      version: '0.014'
     -
       class: Dist::Zilla::Plugin::RunExtraTests
       config:
         Dist::Zilla::Role::TestRunner:
           default_jobs: 9
       name: '@Author::ETHER/RunExtraTests'
-      version: '0.024'
+      version: '0.025'
     -
       class: Dist::Zilla::Plugin::CheckSelfDependency
       config:
@@ -543,7 +566,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::CheckPrereqsIndexed
       name: '@Author::ETHER/CheckPrereqsIndexed'
-      version: '0.012'
+      version: '0.013'
     -
       class: Dist::Zilla::Plugin::TestRelease
       name: '@Author::ETHER/TestRelease'
@@ -610,7 +633,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
           signed: 0
-          tag: v0.005
+          tag: v0.006
           tag_format: v%v%t
           tag_message: v%v%t
           time_zone: local
@@ -656,10 +679,6 @@ x_Dist_Zilla:
           type: requires
       name: DevelopRequires
       version: '5.025'
-    -
-      class: Dist::Zilla::Plugin::DynamicPrereqs
-      name: DynamicPrereqs
-      version: '0.008'
     -
       class: Dist::Zilla::Plugin::Test::CleanNamespaces
       config:
