@@ -78,7 +78,7 @@ EOW
         "Karen Etheridge <ether\@cpan.org>"
       ],
       "dist_name" => "Dist-Zilla-Plugin-CheckIssues",
-      "dist_version" => "0.006",
+      "dist_version" => "0.007",
       "license" => "perl",
       "module_name" => "Dist::Zilla::Plugin::CheckIssues",
       "recommends" => {},
@@ -89,7 +89,7 @@ EOW
         "Encode" => 0,
         "HTTP::Headers" => 0,
         "HTTP::Tiny" => 0,
-        "JSON::MaybeXS" => 0,
+        "JSON::MaybeXS" => "1.001000",
         "List::Util" => "1.33",
         "Moose" => 0,
         "Term::ANSIColor" => 0,

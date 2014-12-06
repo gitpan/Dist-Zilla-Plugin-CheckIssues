@@ -80,7 +80,7 @@ my %WriteMakefileArgs = (
     "Encode" => 0,
     "HTTP::Headers" => 0,
     "HTTP::Tiny" => 0,
-    "JSON::MaybeXS" => 0,
+    "JSON::MaybeXS" => "1.001000",
     "List::Util" => "1.33",
     "Moose" => 0,
     "Term::ANSIColor" => 0,
@@ -103,7 +103,7 @@ my %WriteMakefileArgs = (
     "if" => 0,
     "lib" => 0
   },
-  "VERSION" => "0.006",
+  "VERSION" => "0.007",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -120,7 +120,7 @@ my %FallbackPrereqs = (
   "File::pushd" => 0,
   "HTTP::Headers" => 0,
   "HTTP::Tiny" => 0,
-  "JSON::MaybeXS" => 0,
+  "JSON::MaybeXS" => "1.001000",
   "List::Util" => "1.33",
   "Module::Build::Tiny" => "0.039",
   "Moose" => 0,

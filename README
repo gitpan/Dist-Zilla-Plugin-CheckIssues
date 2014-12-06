@@ -1,7 +1,7 @@
 
 
 This archive contains the distribution Dist-Zilla-Plugin-CheckIssues,
-version 0.006:
+version 0.007:
 
   Retrieve count of outstanding RT and github issues for your distribution
 
